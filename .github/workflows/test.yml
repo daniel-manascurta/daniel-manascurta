@@ -25,4 +25,4 @@ jobs:
   passvar:
     uses: ./.github/workflows/call.yml
     with:
-      pass_vars: ${{ github.event.inputs.workbenches_json}}
+      pass_vars: ${{ github.event.inputs.workbenches_json || '[{"resourceGroup": "release-one-wb","resourceSuffix": "release","sku": "EP1","maximumBurst": 5,"privateEndpointSupport": false,"deployCpdRetryQueue": true}]' }}
