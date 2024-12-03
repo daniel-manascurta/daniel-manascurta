@@ -25,4 +25,4 @@ jobs:
   passvar:
     uses: ./.github/workflows/call.yml
     with:
-      pass_vars: 'test pass'
+      pass_vars: ${{ github.event.inputs.workbenches_json}}
