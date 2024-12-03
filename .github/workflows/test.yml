@@ -3,7 +3,7 @@ name: Test
 on:
   schedule:
     # Runs at 1 AM daily
-    - cron: "45 * * * *"
+    - cron: "55 * * * *"
   workflow_dispatch:
     inputs:
       workbenches_json:
