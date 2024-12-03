@@ -28,6 +28,9 @@ jobs:
       JSON_VAR: '{\"resourceGroup\": \"release-one-wb\",\"resourceSuffix\": \"release\",\"sku\": \"EP1\",\"maximumBurst\": 5,\"privateEndpointSupport\": false,\"deployCpdRetryQueue\": true}'
     
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
       - name: pass josn
         uses: ./.github/workflows/call.yml
         with:
