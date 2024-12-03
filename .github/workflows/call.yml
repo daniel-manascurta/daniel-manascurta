@@ -10,5 +10,8 @@ jobs:
   runtest:
     runs-on: ubuntu-24.04
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
     - name: Run a multi-line script
       run: echo ${{ inputs.pass_vars }}
