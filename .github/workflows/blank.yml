@@ -30,6 +30,6 @@ jobs:
         run: |
           echo ${{ toJson(github.event.inputs.workbenches_json) }}
   pass:
-    uses: ./.github/workflows/stage-deploy-usecase-infra.yml
+    uses: ./.github/workflows/call.yml
     with:
       pass_vars: ${{ github.event.inputs.workbenches_json || 'replace' }}
