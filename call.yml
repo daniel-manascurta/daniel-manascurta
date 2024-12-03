@@ -1,0 +1,15 @@
+name: callable
+
+on:
+  workflow_call:
+    inputs:
+      pass_vars:
+        required: true
+        type: string
+jobs:
+  runtest:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run a multi-line script
+        run: |
+          echo ${{ toJson(github.event.inputs.pass_vars) }}
