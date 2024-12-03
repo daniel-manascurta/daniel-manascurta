@@ -33,4 +33,4 @@ jobs:
     uses: ./.github/workflows/call.yml
     secrets: inherit
     with:
-      pass_vars: ${{ github.event.inputs.workbenches_json || 'replace' }}
+      pass_vars: 'test pass'
