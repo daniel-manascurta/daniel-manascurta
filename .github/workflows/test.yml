@@ -1,9 +1,9 @@
 name: Test
 
 on:
-  schedule:
+  #schedule:
     # Runs at 1 AM daily
-    - cron: "55 * * * *"
+  #  - cron: "55 * * * *"
   workflow_dispatch:
     inputs:
       workbenches_json:
@@ -23,13 +23,13 @@ on:
 
 jobs:
   runtest:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
         run: |
           echo ${{ toJson(github.event.inputs.workbenches_json) }}
-  pass:
+  passvar:
     uses: ./.github/workflows/call.yml
     secrets: inherit
     with:
