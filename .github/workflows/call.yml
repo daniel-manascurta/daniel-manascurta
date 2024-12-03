@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run a multi-line script
-        run: |
-          echo ${{ toJson(github.event.inputs.pass_vars) }}
+      run: |
+        echo ${{ toJson(github.event.inputs.pass_vars) }}
