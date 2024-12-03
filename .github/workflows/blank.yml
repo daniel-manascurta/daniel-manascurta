@@ -3,7 +3,7 @@ name: Test
 on:
   schedule:
     # Runs at 1 AM daily
-    - cron: "35 * * * *"
+    - cron: "20 * * * *"
   workflow_dispatch:
     inputs:
       workbenches_json:
@@ -29,3 +29,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo ${{ toJson(github.event.inputs.workbenches_json) }}
+  pass:
+    uses: ./.github/workflows/stage-deploy-usecase-infra.yml
+    with:
+      pass_vars: ${{ github.event.inputs.workbenches_json || 'replace' }}
