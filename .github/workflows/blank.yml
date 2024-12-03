@@ -1,7 +1,25 @@
 name: Test
 
 on:
+  schedule:
+    # Runs at 1 AM daily
+    - cron: "35 * * * *"
   workflow_dispatch:
+    inputs:
+      workbenches_json:
+        description: 'Wrokbenches resources in JSON format'
+        required: true
+        default: |         
+          [
+            {
+              "resourceGroup": "release-one-wb",
+              "resourceSuffix": "release",
+              "sku": "EP1",
+              "maximumBurst": 5,
+              "privateEndpointSupport": false,
+              "deployCpdRetryQueue": true
+            }
+          ]
 
 jobs:
   runtest:
@@ -10,5 +28,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo ${{ toJson(github.event.inputs.workbenches_json) }}
