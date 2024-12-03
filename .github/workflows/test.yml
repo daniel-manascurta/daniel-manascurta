@@ -31,5 +31,6 @@ jobs:
           echo ${{ toJson(github.event.inputs.workbenches_json) }}
   pass:
     uses: ./.github/workflows/call.yml
+    secrets: inherit
     with:
       pass_vars: ${{ github.event.inputs.workbenches_json || 'replace' }}
