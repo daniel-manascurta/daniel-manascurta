@@ -22,15 +22,7 @@ on:
           ]
 
 jobs:
-  runtest:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run a multi-line script
-        run: |
-          echo ${{ toJson(github.event.inputs.workbenches_json) }}
   passvar:
     uses: ./.github/workflows/call.yml
-    secrets: inherit
     with:
       pass_vars: 'test pass'
