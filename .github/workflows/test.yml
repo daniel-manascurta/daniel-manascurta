@@ -23,9 +23,6 @@ on:
 
 jobs:
   passvar:
-    runs-on: ubuntu-latest
-    env:
-      JSON_VAR: '{\"resourceGroup\": \"release-one-wb\",\"resourceSuffix\": \"release\",\"sku\": \"EP1\",\"maximumBurst\": 5,\"privateEndpointSupport\": false,\"deployCpdRetryQueue\": true}'
     uses: ./.github/workflows/second.yml
     with:
-      pass_vars: ${{ github.event.inputs.workbenches_json || env.JSON_VAR}}
+      pass_vars: ${{ github.event.inputs.workbenches_json || '{\"resourceGroup\": \"release-one-wb\",\"resourceSuffix\": \"release\",\"sku\": \"EP1\",\"maximumBurst\": 5,\"privateEndpointSupport\": false,\"deployCpdRetryQueue\": true}'}}
