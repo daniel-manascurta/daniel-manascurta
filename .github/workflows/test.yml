@@ -23,7 +23,7 @@ on:
 
 jobs:
   passvar:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     env:
       JSON_VAR: '{\"resourceGroup\": \"release-one-wb\",\"resourceSuffix\": \"release\",\"sku\": \"EP1\",\"maximumBurst\": 5,\"privateEndpointSupport\": false,\"deployCpdRetryQueue\": true}'
     
