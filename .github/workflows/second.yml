@@ -17,6 +17,6 @@ jobs:
     - name: Run a multi-line script
       run:  |
         MATRIX1=$(echo '${{ inputs.workbenches }}' | jq -c '. | {workbenches: .}')
-        MATRIX1=$(echo '${{ inputs.usecases }}' | jq -c '. | {usecases: .}')
+        MATRIX2=$(echo '${{ inputs.usecases }}' | jq -c '. | {usecases: .}')
         echo "Matrix generated: $MATRIX1"
         echo "Matrix generated: $MATRIX2"
