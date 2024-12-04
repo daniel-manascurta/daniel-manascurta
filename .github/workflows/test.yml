@@ -9,4 +9,4 @@ jobs:
   passvar:
     uses: ./.github/workflows/second.yml
     with:
-      usecases: ${{ toJson(vars.NIGHTLY_USECASES_JSON) }}
+      usecases: ${{ vars.NIGHTLY_USECASES_JSON }}
