@@ -25,5 +25,4 @@ jobs:
   passvar:
     uses: ./.github/workflows/second.yml
     with:
-      workbenches: ${{ toJson(vars.WORKBENCHES_JSON) }}
-      usecases: ${{ toJson(vars.USECASES_JSON) }}
+      workbenches_json: ${{ toJson(vars.WORKBENCHES_JSON) }}
