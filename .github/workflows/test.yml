@@ -22,7 +22,16 @@ on:
           ]
 
 jobs:
+  set_json:
+    runs-on: ubuntu-latest
+    outputs:
+      json_out: ${{ steps.set_json_out.outputs.my_variable }}
+    steps:
+    - name: Generate json
+      id: set_json_out
+      run: echo "json string" >> $GITHUB_ENV
+
   passvar:
     uses: ./.github/workflows/second.yml
     with:
-      pass_vars: ${{ github.event.inputs.workbenches_json || 'json'}}
+      pass_vars: ${{ needs.set_json.outputs.json_out}}
