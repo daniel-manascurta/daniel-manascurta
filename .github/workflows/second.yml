@@ -13,5 +13,5 @@ jobs:
 
     - name: Run a multi-line script
       run:  |
-        MATRIX=$(echo '${{ github.event.inputs.pass_vars }}' | jq -c '. | {workbenches: .}')
+        MATRIX=$(echo '${{ inputs.pass_vars }}' | jq -c '. | {workbenches: .}')
         echo "Matrix generated: $MATRIX"
