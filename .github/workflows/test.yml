@@ -31,7 +31,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: pass josn
-        uses: ./.github/workflows/call.yml
-        with:
-          pass_vars: ${{ github.event.inputs.workbenches_json || env.JSON_VAR}}
+      # - name: pass josn
+      #   uses: ./.github/workflows/call.yml
+      #   with:
+      #     pass_vars: ${{ github.event.inputs.workbenches_json || env.JSON_VAR}}
