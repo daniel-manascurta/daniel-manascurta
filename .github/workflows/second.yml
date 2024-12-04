@@ -12,4 +12,6 @@ jobs:
     steps:
 
     - name: Run a multi-line script
-      run: echo ${{ inputs.pass_vars }}
+      run:  |
+        MATRIX=$(echo '${{ github.event.inputs.pass_vars }}' | jq -c '. | {workbenches: .}')
+        echo "Matrix generated: $MATRIX"
