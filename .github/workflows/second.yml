@@ -11,16 +11,16 @@ on:
         type: string
 jobs:
   generate-json-for-matrix:
-  runs-on: ubuntu-24.04
-  outputs:
-    matrix: ${{ steps.set-matrix.outputs.matrix }}
-  steps:
-    - name: Parse JSON and Generate Matrix
-      id: set-matrix
-      run: |
-        MATRIX=$(echo '${{ inputs.workbenches_json }}' | jq -c '. | {workbenches: .}')
-        echo "Matrix generated: $MATRIX"
-        echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Parse JSON and Generate Matrix
+        id: set-matrix
+        run: |
+          MATRIX=$(echo '${{ inputs.workbenches_json }}' | jq -c '. | {workbenches: .}')
+          echo "Matrix generated: $MATRIX"
+          echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
 
   test-matrix:
     needs: [generate-json-for-matrix]
@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.generate-json-for-matrix.outputs.matrix) }}
       fail-fast: false
-      steps:
-        - name: matrix check
-          run: |
-            echo ${{ matrix.workbenches.resourceGroup}}
+    steps:
+      - name: matrix check
+        run: |
+          echo ${{ matrix.workbenches.resourceGroup}}
