@@ -1,4 +1,4 @@
-name: callable
+name: second
 
 on:
   workflow_call:
