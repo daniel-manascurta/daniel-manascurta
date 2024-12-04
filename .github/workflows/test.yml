@@ -10,4 +10,4 @@ jobs:
     uses: ./.github/workflows/second.yml
     with:
       workbenches_json: ${{ vars.WORKBENCHES_JSON }}
-      usecases: ${{ vars.WORKBENCHES_JSON }}
+      usecases: ${{ vars.NIGHTLY_USECASES_JSON }}
