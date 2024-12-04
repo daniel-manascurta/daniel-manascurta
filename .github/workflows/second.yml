@@ -6,9 +6,7 @@ on:
       workbenches:
         required: true
         type: string
-      usecases:
-        required: true
-        type: string
+
 jobs:
   generate-json-for-matrix:
     runs-on: ubuntu-24.04
