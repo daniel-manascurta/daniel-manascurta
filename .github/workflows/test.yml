@@ -21,8 +21,9 @@ on:
             }
           ]
 
+
 jobs:
   passvar:
     uses: ./.github/workflows/second.yml
     with:
-      pass_vars: ${{ inputs.workbenches_json}}
+      pass_vars: ${{ vars.WORKBENCHES_JSON}}
