@@ -26,4 +26,4 @@ jobs:
     uses: ./.github/workflows/second.yml
     with:
       workbenches: ${{ toJson(vars.WORKBENCHES_JSON) }}
-      usecases: ${{ toJson(USECASES_JSON) }}
+      usecases: ${{ toJson(vars.USECASES_JSON) }}
