@@ -3,9 +3,6 @@ name: second
 on:
   workflow_call:
     inputs:
-      workbenches_json:
-        required: true
-        type: string
       usecases:
         required: true
         type: string        
@@ -19,21 +16,9 @@ jobs:
       - name: Parse JSON and Generate Matrix
         id: set-matrix
         run: |
-          MATRIX=$(echo '${{ inputs.workbenches_json }}' | jq -c '. | {workbenches: .}')
+          MATRIX=$(echo '${{ inputs.usecases }}' | jq -c '. | {usecases: .}')
           echo "Matrix generated: $MATRIX"
           echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
-
-  generate-json-for-matrix2:
-    runs-on: ubuntu-24.04
-    outputs:
-      matrix2: ${{ steps.set-set-matrix2.outputs.matrix }}
-    steps:
-      - name: Parse JSON and Generate Matrix
-        id: set-matrix2
-        run: |
-          MATRIX2=$(echo '${{ inputs.usecases }}' | jq -c '. | {workbenches: .}')
-          echo "Matrix2 generated: $MATRIX2"
-          echo "matrix2=$MATRIX2" >> "$GITHUB_OUTPUT"
 
   test-matrix:
     needs: [generate-json-for-matrix]
@@ -44,15 +29,4 @@ jobs:
     steps:
       - name: matrix check
         run: |
-          echo ${{ matrix.workbenches.resourceGroup}}
-
-  test-matrix2:
-      needs: [generate-json-for-matrix2]
-      runs-on: ubuntu-24.04
-      strategy:
-        matrix: ${{ fromJSON(needs.generate-json-for-matrix2.outputs.matrix2) }}
-        fail-fast: false
-      steps:
-        - name: matrix2 check
-          run: |
-            echo ${{matrix2.usecases.usecaseId}}          
+          echo ${{matrix.usecases.usecaseId}}
