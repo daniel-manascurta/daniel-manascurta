@@ -3,7 +3,7 @@ name: second
 on:
   workflow_call:
     inputs:
-      workbenches:
+      workbenches_json:
         required: true
         type: string
 
