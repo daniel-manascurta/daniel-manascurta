@@ -1,9 +1,8 @@
 name: Test
 
 on:
-  #schedule:
-    # Runs at 1 AM daily
-  #  - cron: "*/15 * * * *"
+  schedule:
+   - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       workbenches_json:
