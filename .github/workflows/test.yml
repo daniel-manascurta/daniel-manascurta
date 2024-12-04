@@ -6,6 +6,10 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-24.04
+    run: |
+      echo ${{ vars.NIGHTLY_USECASES_JSON }}
   passvar:
     uses: ./.github/workflows/second.yml
     with:
