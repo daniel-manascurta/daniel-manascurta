@@ -4,25 +4,10 @@ on:
   schedule:
    - cron: "*/15 * * * *"
   workflow_dispatch:
-    inputs:
-      workbenches_json:
-        description: 'Wrokbenches resources in JSON format'
-        required: true
-        default: |         
-          [
-            {
-              "resourceGroup": "release-one-wb",
-              "resourceSuffix": "release",
-              "sku": "EP1",
-              "maximumBurst": 5,
-              "privateEndpointSupport": false,
-              "deployCpdRetryQueue": true
-            }
-          ]
-
 
 jobs:
   passvar:
     uses: ./.github/workflows/second.yml
     with:
       workbenches_json: ${{ vars.WORKBENCHES_JSON }}
+      usecases: ${{ vars.WORKBENCHES_JSON }}
