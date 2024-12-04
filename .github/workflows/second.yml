@@ -55,4 +55,4 @@ jobs:
       steps:
         - name: matrix2 check
           run: |
-            echo ${{matrix.usecases.usecaseId}}          
+            echo ${{matrix2.usecases.usecaseId}}          
