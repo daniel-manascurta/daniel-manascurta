@@ -26,7 +26,7 @@ jobs:
   generate-json-for-matrix2:
     runs-on: ubuntu-24.04
     outputs:
-      matrix: ${{ steps.set-set-matrix2.outputs.matrix }}
+      matrix2: ${{ steps.set-set-matrix2.outputs.matrix }}
     steps:
       - name: Parse JSON and Generate Matrix
         id: set-matrix2
