@@ -3,7 +3,10 @@ name: second
 on:
   workflow_call:
     inputs:
-      pass_vars:
+      workbenches:
+        required: true
+        type: string
+      usecases:
         required: true
         type: string
 jobs:
@@ -13,5 +16,7 @@ jobs:
 
     - name: Run a multi-line script
       run:  |
-        MATRIX=$(echo '${{ inputs.pass_vars }}' | jq -c '. | {workbenches: .}')
-        echo "Matrix generated: $MATRIX"
+        MATRIX1=$(echo '${{ inputs.workbenches }}' | jq -c '. | {workbenches: .}')
+        MATRIX1=$(echo '${{ inputs.usecases }}' | jq -c '. | {workbenches: .}')
+        echo "Matrix generated: $MATRIX1"
+        echo "Matrix generated: $MATRIX2"
