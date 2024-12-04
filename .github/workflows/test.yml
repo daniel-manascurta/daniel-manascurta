@@ -12,8 +12,8 @@ jobs:
       - name: echo
         run: |
           echo ${{ vars.NIGHTLY_USECASES_JSON }}
-          
+
   passvar:
-  uses: ./.github/workflows/second.yml
-  with:
-    usecases: ${{ vars.NIGHTLY_USECASES_JSON }}
+    uses: ./.github/workflows/second.yml
+    with:
+      usecases: ${{ vars.NIGHTLY_USECASES_JSON }}
