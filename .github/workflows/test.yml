@@ -23,7 +23,7 @@ on:
 
 jobs:
   passvar:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-lates
     env:
       JSON_VAR: '{\"resourceGroup\": \"release-one-wb\",\"resourceSuffix\": \"release\",\"sku\": \"EP1\",\"maximumBurst\": 5,\"privateEndpointSupport\": false,\"deployCpdRetryQueue\": true}'
     
@@ -31,7 +31,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      # - name: pass josn
-      #   uses: ./.github/workflows/call.yml
-      #   with:
-      #     pass_vars: ${{ github.event.inputs.workbenches_json || env.JSON_VAR}}
+      - name: pass josn
+        uses: ./.github/workflows/call.yml
+        with:
+          pass_vars: ${{ github.event.inputs.workbenches_json || env.JSON_VAR}}
