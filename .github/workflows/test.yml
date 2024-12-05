@@ -1,10 +1,13 @@
 name: Test
 
 on:
-  #schedule:
-  # - cron: "*/15 * * * *"
+  schedule:
+   - cron: "*/15 * * * *"
   workflow_dispatch:
-
+    inputs:
+      usecases:
+        required: true
+        type: string
 jobs:
   test:
     runs-on: ubuntu-24.04
@@ -16,4 +19,4 @@ jobs:
   passvar:
     uses: ./.github/workflows/second.yml
     with:
-      usecases: ${{ vars.USECASES_JSON }}
+      usecases: ${{ github.event.inputs.usecases || vars.USECASES_JSON }}
