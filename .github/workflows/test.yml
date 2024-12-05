@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       usecases:
-        required: true
+        required: false
         type: string
-        default: 
+
 env:
   DEFAULT_VAR: ${{ vars.USECASES_JSON }}          
 
@@ -26,4 +26,4 @@ jobs:
       - name: trigger workflow
         uses: ./.github/workflows/second.yml
         with:
-          usecases:  ${{ github.event.inputs.usecases || env.DEFAULT_REPO }}
+          usecases:  ${{ github.event.inputs.usecases || env.DEFAULT_VAR }}
