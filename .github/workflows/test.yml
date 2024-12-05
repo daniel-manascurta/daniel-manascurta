@@ -9,13 +9,6 @@ on:
         required: true
         type: string
 jobs:
-  test:
-    runs-on: ubuntu-24.04
-    steps:
-      - name: echojson
-        run: |
-          echo ${{ vars.USECASES_JSON }}
-
   passvar:
     uses: ./.github/workflows/second.yml
     with:
