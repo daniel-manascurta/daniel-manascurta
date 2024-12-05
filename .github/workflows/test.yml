@@ -8,8 +8,22 @@ on:
       usecases:
         required: true
         type: string
+        default: 
+env:
+  DEFAULT_VAR: ${{ vars.USECASES_JSON }}          
+
 jobs:
   passvar:
-    uses: ./.github/workflows/second.yml
-    with:
-      usecases: ${{ github.event.inputs.usecases || vars.USECASES_JSON }}
+    runs-on: ubuntu-latest
+    steps:
+      # - name : set var
+      #   id: determine_input
+      #   run: |
+      #     if [ "${{ github.event_name }}" == "schedule" ]; then
+      #       echo "input_value=${{ env.DEFAULT_VAR }}" >> $GITHUB_ENV
+      #     else
+      #       echo "input_value=${{ github.event.inputs.usecases || env.DEFAULT_VAR }}" >> $GITHUB_ENV
+      - name: trigger workflow
+        uses: ./.github/workflows/second.yml
+        with:
+          usecases:  ${{ github.event.inputs.usecases || env.DEFAULT_REPO }}
