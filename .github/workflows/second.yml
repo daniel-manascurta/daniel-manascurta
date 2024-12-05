@@ -16,7 +16,7 @@ jobs:
       - name: Parse JSON and Generate Matrix
         id: set-matrix
         run: |
-          MATRIX=$(echo '${{ inputs.usecases }}' | jq -c '. | {usecases: .}')
+          MATRIX=$(echo '${{ github.event.inputs.usecases }}' | jq -c '. | {usecases: .}')
           echo "Matrix generated: $MATRIX"
           echo "matrix=$MATRIX" >> "$GITHUB_OUTPUT"
 
