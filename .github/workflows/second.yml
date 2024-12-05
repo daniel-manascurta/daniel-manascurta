@@ -4,8 +4,8 @@ on:
   workflow_call:
     inputs:
       usecases:
-        required: true
-        type: string        
+        required: false
+        type: string
 
 jobs:
   generate-json-for-matrix:
