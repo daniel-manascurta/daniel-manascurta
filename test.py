@@ -20,10 +20,12 @@ ls = [
     },
 ]
 
+
 files = [f["filename"] for f in ls if f["path"].upper().endswith(".ZIP")]
 # utc_now = str(datetime.utcnow().replace(":", "-").replace(" ", "_"))
 # @concat(replace(split(utcNow(), '.')[0], ':', '-'), '_')
 # print(utc_now.split(".")[0])
 # print(utc_now.split(".")[0].replace(":", "-").replace(" ", "_"))
 print(files)
+print(len(files))
 # print(str(datetime.utcnow()).split(".")[0].replace(":", "-").replace(" ", "_"))
