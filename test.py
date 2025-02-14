@@ -29,3 +29,4 @@ files = [f["filename"] for f in ls if f["path"].upper().endswith(".ZIP")]
 print(files)
 print(len(files))
 # print(str(datetime.utcnow()).split(".")[0].replace(":", "-").replace(" ", "_"))
+# comm
